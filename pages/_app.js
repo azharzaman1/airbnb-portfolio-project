@@ -1,7 +1,13 @@
-import 'tailwindcss/tailwind.css'
+import "tailwindcss/tailwind.css";
+import "../components/generic/Components.css";
+import ThemeWrapper from "../files/ThemeWrapper";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <ThemeWrapper>
+      <Component {...pageProps} />
+    </ThemeWrapper>
+  );
 }
 
-export default MyApp
+export default MyApp;
