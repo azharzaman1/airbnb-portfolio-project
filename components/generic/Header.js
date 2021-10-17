@@ -14,12 +14,7 @@ const Header = () => {
   return (
     <header className="header sticky top-0 z-50 bg-white shadow-md py-4">
       <MuiContainer maxWidth="xl">
-        <Grid
-          container
-          alignItems="center"
-          justifyContent="space-between"
-          xs={12}
-        >
+        <Grid container alignItems="center" justifyContent="space-between">
           <Grid
             item
             md={above465px ? 4 : 3}

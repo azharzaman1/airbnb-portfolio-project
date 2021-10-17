@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, useTheme } from "@mui/material";
+import { Button, buttonGroupClasses, useTheme } from "@mui/material";
 
 export const ThemeButton = ({
   children,
@@ -33,6 +33,72 @@ export const ThemeButton = ({
     >
       {children}
     </Button>
+  );
+};
+
+export const TWButton = ({ children, color, bg = "#ffffff" }) => {
+  return (
+    <button
+      className={`text-lg ${color ? `text-[${color}]` : `text-purple-500`} ${
+        bg ? `bg-[${bg}]` : `bg-white`
+      } px-14 py-5 shadow-md rounded-full font-bold transition duration-200 my-3 hover:shadow-lg active:scale-90`}
+    >
+      {children}
+    </button>
+  );
+};
+
+export const TWHeading = ({
+  type = "primary",
+  className,
+  children,
+  ...rest
+}) => {
+  if (type === "primary") {
+    return (
+      <h1
+        className={`heading font-main font-bold text-[32px] mb-6 ${className}`}
+        {...rest}
+      >
+        {children}
+      </h1>
+    );
+  } else if (type === "secondary") {
+    return (
+      <h2
+        className={`heading font-main font-semibold text-[48px] ${className}`}
+        {...rest}
+      >
+        {children}
+      </h2>
+    );
+  } else {
+    return (
+      <h3
+        className={`heading font-main font-medium text-[22px] ${className}`}
+        {...rest}
+      >
+        {children}
+      </h3>
+    );
+  }
+};
+
+export const TWText = ({
+  bold,
+  semibold,
+  children,
+  color = "#222222",
+  className,
+}) => {
+  return (
+    <p
+      className={`text text-[16px] text-[${color}] font-${
+        bold ? "bold" : semibold ? "semibold" : "normal"
+      } ${className}`}
+    >
+      {children}
+    </p>
   );
 };
 
