@@ -1,7 +1,8 @@
+import Head from "next/head";
+import ThemeWrapper from "../files/ThemeWrapper";
 import "tailwindcss/tailwind.css";
 import "../components/generic/Components.css";
-import ThemeWrapper from "../files/ThemeWrapper";
-import Head from "next/head";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (

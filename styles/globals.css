@@ -1,0 +1,25 @@
+.nearby-locations-section *::-webkit-scrollbar,
+.live-anywhere-section *::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.nearby-locations-section *::-webkit-scrollbar-track,
+.live-anywhere-section *::-webkit-scrollbar-track {
+  background: rgb(240, 240, 240);
+}
+
+.nearby-locations-section *::-webkit-scrollbar-thumb,
+.live-anywhere-section *::-webkit-scrollbar-thumb {
+  background-color: rgba(153, 153, 153, 0.3);
+  border-radius: 5px;
+  transition: background-color 1s;
+}
+
+.nearby-locations-section *::-webkit-scrollbar-thumb:hover,
+.live-anywhere-section *::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(153, 153, 153, 0.4);
+}
+
+.custom-gradient {
+}

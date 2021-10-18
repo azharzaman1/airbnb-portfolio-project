@@ -1,12 +1,27 @@
 import { MuiContainer } from "../../files/StyledMui";
-import NearbyLocations from "./_homeMain_nearbyLocations";
+import NearbyLocations from "./_HomeMain_NearbyLocations";
+import LiveAnywhereSection from "./_HomeMain_LiveAnywhere";
+import LargeBanner from "./_HomeMain_LargeCard";
 
-export const HomeMain = ({ data }) => {
+const HomeMain = ({ locationsData, liveAnywhereData }) => {
   return (
-    <div className="home-main ">
+    <section className="home-main pb-10">
       <MuiContainer maxWidth="xl">
-        {data && <NearbyLocations locationsData={data} />}
+        {locationsData && <NearbyLocations locationsData={locationsData} />}
+        {liveAnywhereData && (
+          <LiveAnywhereSection liveAnywhereData={liveAnywhereData} />
+        )}
+
+        <LargeBanner
+          imgUrl="https://links.papareact.com/4cj"
+          title="The Greated Outdoors"
+          desc="Earn extra income and open new great opportunities by sharing your space"
+          btnText="Start Now"
+          className="mt-20"
+        />
       </MuiContainer>
-    </div>
+    </section>
   );
 };
+
+export default HomeMain;

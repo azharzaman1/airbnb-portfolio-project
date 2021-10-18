@@ -1,9 +1,9 @@
 import Head from "next/head";
 import Header from "../components/generic/Header";
 import Hero from "../components/home/Hero";
-import { HomeMain } from "../components/home/HomeMain";
+import HomeMain from "../components/home/HomeMain";
 
-export default function Home({ locationsData }) {
+export default function Home({ locationsData, liveAnywhereData }) {
   return (
     <div>
       <Head>
@@ -12,18 +12,27 @@ export default function Home({ locationsData }) {
       </Head>
       <Header />
       <Hero />
-      <HomeMain data={locationsData} />
+      <HomeMain
+        locationsData={locationsData}
+        liveAnywhereData={liveAnywhereData}
+      />
     </div>
   );
 }
 
 export async function getStaticProps() {
-  const response = await fetch("https://links.papareact.com/pyp"); // replace with the source of data
-  const locationsData = await response.json();
+  const locationsData = await (
+    await fetch("https://links.papareact.com/pyp")
+  ).json();
+
+  const liveAnywhereData = await (
+    await fetch("https://links.papareact.com/zp1")
+  ).json();
 
   return {
     props: {
       locationsData,
+      liveAnywhereData,
     },
   };
 }

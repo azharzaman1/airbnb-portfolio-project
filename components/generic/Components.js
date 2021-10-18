@@ -36,7 +36,7 @@ export const ThemeButton = ({
   );
 };
 
-export const TWButton = ({ children, color, bg = "#ffffff" }) => {
+export const TWButton = ({ children, color, bg }) => {
   return (
     <button
       className={`text-lg ${color ? `text-[${color}]` : `text-purple-500`} ${
@@ -52,12 +52,15 @@ export const TWHeading = ({
   type = "primary",
   className,
   children,
+  color,
   ...rest
 }) => {
   if (type === "primary") {
     return (
       <h1
-        className={`heading font-main font-bold text-[32px] mb-6 ${className}`}
+        className={`heading font-main font-bold text-[32px] mb-6 ${
+          color && `text-[${color}]`
+        } ${className}`}
         {...rest}
       >
         {children}
