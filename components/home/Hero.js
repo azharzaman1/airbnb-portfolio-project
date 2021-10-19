@@ -9,11 +9,11 @@ const Hero = () => {
         layout="fill"
         objectFit="cover"
       />
-      <div className="hero-content absolute w-full top-1/2 text-center">
+      <div className="hero-content absolute w-full top-1/3 md:top-1/2 text-center">
         <TWText semibold className="text-sm sm:text-md md:text-lg">
           Not sure where to go? Don't worry
         </TWText>
-        <TWButton>I'm flexible</TWButton>
+        <TWButton className="mt-6">I'm flexible</TWButton>
       </div>
     </div>
   );

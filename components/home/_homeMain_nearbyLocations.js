@@ -1,7 +1,7 @@
-import { TWHeading, TWText } from "../generic/Components";
+import { TWText } from "../generic/Components";
 import Image from "next/image";
 import { Grid, useMediaQuery } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ChunkifyArray } from "../../files/utils";
 
 const NearbyLocations = ({ locationsData }) => {
@@ -10,7 +10,6 @@ const NearbyLocations = ({ locationsData }) => {
 
   return (
     <section className="section nearby-locations-section">
-      <TWHeading className="mt-4">Explore Nearby</TWHeading>
       <div
         className={`flex-col ${
           isBelow876Px && "overflow-y-hidden overflow-x-scroll"

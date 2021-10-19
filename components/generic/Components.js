@@ -36,16 +36,34 @@ export const ThemeButton = ({
   );
 };
 
-export const TWButton = ({ children, color, bg }) => {
-  return (
-    <button
-      className={`text-lg ${color ? `text-[${color}]` : `text-purple-500`} ${
-        bg ? `bg-[${bg}]` : `bg-white`
-      } px-14 py-5 shadow-md rounded-full font-bold transition duration-200 my-3 hover:shadow-lg active:scale-90`}
-    >
-      {children}
-    </button>
-  );
+export const TWButton = ({
+  type = "primary",
+  children,
+  color,
+  bg,
+  className,
+}) => {
+  if (type === "primary") {
+    return (
+      <button
+        className={`text-lg ${color ? `text-[${color}]` : `text-purple-500`} ${
+          bg ? `bg-[${bg}]` : `bg-white`
+        } px-14 py-4 shadow-md rounded-full font-bold transition duration-200 hover:shadow-lg active:scale-90 ${className}`}
+      >
+        {children}
+      </button>
+    );
+  } else if (type === "secondary") {
+    return (
+      <button
+        className={`text-md px-8 py-3 font-bold rounded-lg ${
+          color ? `text-[${color}]` : `text-purple-500`
+        } ${bg ? `bg-[${bg}]` : `bg-white`} ${className}`}
+      >
+        {children}
+      </button>
+    );
+  }
 };
 
 export const TWHeading = ({
@@ -58,9 +76,7 @@ export const TWHeading = ({
   if (type === "primary") {
     return (
       <h1
-        className={`heading font-main font-bold text-[32px] mb-6 ${
-          color && `text-[${color}]`
-        } ${className}`}
+        className={`heading font-main font-bold text-[32px] mb-6 ${className}`}
         {...rest}
       >
         {children}
@@ -69,7 +85,7 @@ export const TWHeading = ({
   } else if (type === "secondary") {
     return (
       <h2
-        className={`heading font-main font-semibold text-[48px] ${className}`}
+        className={`heading font-main font-semibold text-[30px] md:text-[40px] lg:text-[48px] xl:text-[55px] 2xl:text-[70px] ${className}`}
         {...rest}
       >
         {children}
@@ -87,21 +103,35 @@ export const TWHeading = ({
   }
 };
 
-export const TWText = ({
-  bold,
-  semibold,
-  children,
-  color = "#222222",
-  className,
-}) => {
+export const TWText = ({ bold, semibold, children, className }) => {
   return (
     <p
-      className={`text text-[16px] text-[${color}] font-${
+      className={`text text-[16px] font-${
         bold ? "bold" : semibold ? "semibold" : "normal"
       } ${className}`}
     >
       {children}
     </p>
+  );
+};
+
+export const TWLink = ({
+  bold,
+  semibold,
+  href,
+  className,
+  color = "rgb(34, 34, 34)",
+  children,
+}) => {
+  return (
+    <a
+      href={href}
+      className={`link hover:underline text-[${color}] cursor-pointer text-[14px] font-${
+        bold ? "bold" : semibold ? "semibold" : "normal"
+      } ${className}`}
+    >
+      {children}
+    </a>
   );
 };
 

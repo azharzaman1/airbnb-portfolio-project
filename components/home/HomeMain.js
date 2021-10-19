@@ -1,15 +1,24 @@
 import { MuiContainer } from "../../files/StyledMui";
 import NearbyLocations from "./_HomeMain_NearbyLocations";
-import LiveAnywhereSection from "./_HomeMain_LiveAnywhere";
+import LiveAnywhere from "./_HomeMain_LiveAnywhere";
 import LargeBanner from "./_HomeMain_LargeCard";
+import Blog from "./_HomeMain_Blog";
+import Section from "../generic/Section";
 
-const HomeMain = ({ locationsData, liveAnywhereData }) => {
+const HomeMain = ({ locationsData, liveAnywhereData, blogData }) => {
   return (
     <section className="home-main pb-10">
       <MuiContainer maxWidth="xl">
-        {locationsData && <NearbyLocations locationsData={locationsData} />}
+        {locationsData && (
+          <Section headline="Explore nearby">
+            <NearbyLocations locationsData={locationsData} />
+          </Section>
+        )}
+
         {liveAnywhereData && (
-          <LiveAnywhereSection liveAnywhereData={liveAnywhereData} />
+          <Section headline="Live anywhere">
+            <LiveAnywhere liveAnywhereData={liveAnywhereData} />
+          </Section>
         )}
 
         <LargeBanner
@@ -19,6 +28,12 @@ const HomeMain = ({ locationsData, liveAnywhereData }) => {
           btnText="Start Now"
           className="mt-20"
         />
+
+        {blogData && (
+          <Section headline="Discover things to do">
+            <Blog blogData={blogData} />
+          </Section>
+        )}
       </MuiContainer>
     </section>
   );
