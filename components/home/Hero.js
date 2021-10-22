@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { TWButton, TWText } from "../generic/Components";
 
 const Hero = () => {
   return (
@@ -10,10 +9,10 @@ const Hero = () => {
         objectFit="cover"
       />
       <div className="hero-content absolute w-full top-1/3 md:top-1/2 text-center">
-        <TWText semibold className="text-sm sm:text-md md:text-lg">
+        <p className="text-semibold text-sm sm:text-md md:text-lg">
           Not sure where to go? Don't worry
-        </TWText>
-        <TWButton className="mt-6">I'm flexible</TWButton>
+        </p>
+        <button className="primary-button mt-6">I'm flexible</button>
       </div>
     </div>
   );

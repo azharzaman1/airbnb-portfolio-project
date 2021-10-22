@@ -1,9 +1,7 @@
-import { TWHeading } from "./Components";
-
 const Section = ({ headline, children }) => {
   return (
     <section>
-      <TWHeading className="mt-10 mb-5">{headline}</TWHeading>
+      <h2 className="primary-heading mt-10 mb-5">{headline}</h2>
       {children}
     </section>
   );

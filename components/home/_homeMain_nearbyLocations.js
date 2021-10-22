@@ -1,4 +1,3 @@
-import { TWText } from "../generic/Components";
 import Image from "next/image";
 import { Grid, useMediaQuery } from "@mui/material";
 import { useState } from "react";
@@ -57,12 +56,8 @@ const Location = ({ name, imgUrl, distance }) => {
           />
         </Grid>
         <Grid item className="flex flex-col justify-center">
-          <TWText className="text-sm sm:text-md lg:text-lg" bold>
-            {name}
-          </TWText>
-          <TWText className="mt-1 text-xs sm:text-sm lg:text-md">
-            {distance}
-          </TWText>
+          <p className="text-bold text-sm sm:text-md lg:text-lg">{name}</p>
+          <p className="text mt-1 text-xs sm:text-sm lg:text-md">{distance}</p>
         </Grid>
       </Grid>
     </div>
