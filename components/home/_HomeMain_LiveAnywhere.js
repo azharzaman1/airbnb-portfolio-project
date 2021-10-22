@@ -1,5 +1,4 @@
 import { useMediaQuery } from "@mui/material";
-import { TWText } from "../generic/Components";
 import Image from "next/image";
 import { useWindowSize } from "../../Hooks/useWindowSize";
 
@@ -49,11 +48,11 @@ export const Card = ({ img, title, desc, noOfItems, className }) => {
           className="rounded-lg"
         />
       </div>
-      <TWText className="text-sm sm:text-md lg:text-lg mt-2" semibold>
+      <p className="text-semibold text-sm sm:text-md lg:text-lg mt-2">
         {title}
-      </TWText>
+      </p>
       {desc && (
-        <TWText className="text-xs sm:text-sm lg:text-md mt-1">{desc}</TWText>
+        <p className="text text-xs sm:text-sm lg:text-md mt-1">{desc}</p>
       )}
     </div>
   );

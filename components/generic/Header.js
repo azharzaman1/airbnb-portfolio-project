@@ -7,10 +7,14 @@ import {
 } from "@heroicons/react/solid";
 import { ThemeButton } from "./Components";
 import { MuiContainer } from "../../files/StyledMui";
+import { useState } from "react";
+import SearchCalender from "./_Header_SearchCalender";
 
 const Header = () => {
+  const [input, setInput] = useState("");
   const above660px = useMediaQuery("(min-width:660px)");
   const above465px = useMediaQuery("(min-width:465px)");
+
   return (
     <header className="header sticky top-0 z-50 bg-white shadow-md py-4">
       <MuiContainer maxWidth="xl">
@@ -26,6 +30,8 @@ const Header = () => {
             <div className="flex items-center md:border-2 py-2 rounded-full transition-shadow duration-100 md:shadow-sm hover:shadow-md">
               <input
                 type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
                 placeholder="Start your search"
                 className="pl-5 bg-transparent outline-none flex-grow text-gray-700 placeholder-gray-400"
               />
@@ -62,6 +68,7 @@ const Header = () => {
             </Grid>
           </Grid>
         </Grid>
+        {input && <SearchCalender />}
       </MuiContainer>
     </header>
   );

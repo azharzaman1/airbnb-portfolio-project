@@ -13,7 +13,7 @@ export default function Home({
   return (
     <div>
       <Head>
-        <title>AirBnB | sonysangha</title>
+        <title>Airbnb | sonysangha</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />

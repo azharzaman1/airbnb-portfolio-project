@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, buttonGroupClasses, useTheme } from "@mui/material";
+import { Button, useTheme } from "@mui/material";
 
 export const ThemeButton = ({
   children,
@@ -33,105 +33,6 @@ export const ThemeButton = ({
     >
       {children}
     </Button>
-  );
-};
-
-export const TWButton = ({
-  type = "primary",
-  children,
-  color,
-  bg,
-  className,
-}) => {
-  if (type === "primary") {
-    return (
-      <button
-        className={`text-lg ${color ? `text-[${color}]` : `text-purple-500`} ${
-          bg ? `bg-[${bg}]` : `bg-white`
-        } px-14 py-4 shadow-md rounded-full font-bold transition duration-200 hover:shadow-lg active:scale-90 ${className}`}
-      >
-        {children}
-      </button>
-    );
-  } else if (type === "secondary") {
-    return (
-      <button
-        className={`text-md px-8 py-3 font-bold rounded-lg ${
-          color ? `text-[${color}]` : `text-purple-500`
-        } ${bg ? `bg-[${bg}]` : `bg-white`} ${className}`}
-      >
-        {children}
-      </button>
-    );
-  }
-};
-
-export const TWHeading = ({
-  type = "primary",
-  className,
-  children,
-  color,
-  ...rest
-}) => {
-  if (type === "primary") {
-    return (
-      <h1
-        className={`heading font-main font-bold text-[32px] mb-6 ${className}`}
-        {...rest}
-      >
-        {children}
-      </h1>
-    );
-  } else if (type === "secondary") {
-    return (
-      <h2
-        className={`heading font-main font-semibold text-[30px] md:text-[40px] lg:text-[48px] xl:text-[55px] 2xl:text-[70px] ${className}`}
-        {...rest}
-      >
-        {children}
-      </h2>
-    );
-  } else {
-    return (
-      <h3
-        className={`heading font-main font-medium text-[22px] ${className}`}
-        {...rest}
-      >
-        {children}
-      </h3>
-    );
-  }
-};
-
-export const TWText = ({ bold, semibold, children, className }) => {
-  return (
-    <p
-      className={`text text-[16px] font-${
-        bold ? "bold" : semibold ? "semibold" : "normal"
-      } ${className}`}
-    >
-      {children}
-    </p>
-  );
-};
-
-export const TWLink = ({
-  bold,
-  semibold,
-  href,
-  className,
-  color = "rgb(34, 34, 34)",
-  children,
-}) => {
-  return (
-    <a
-      href={href}
-      className={`link hover:underline text-[${color}] cursor-pointer text-[14px] font-${
-        bold ? "bold" : semibold ? "semibold" : "normal"
-      } ${className}`}
-    >
-      {children}
-    </a>
   );
 };
 

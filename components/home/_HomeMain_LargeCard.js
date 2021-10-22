@@ -1,12 +1,9 @@
 import { useMediaQuery } from "@mui/material";
 import Image from "next/image";
-import { TWButton, TWHeading, TWText } from "../generic/Components";
 
 const _HomeMain_LargeCard = ({ imgUrl, title, desc, btnText, className }) => {
   const isBelow876Px = useMediaQuery("(max-width: 876px)");
   const isAbove876Px = useMediaQuery("(min-width: 877px)");
-
-  console.log(isAbove876Px, isBelow876Px);
 
   return (
     <div
@@ -21,11 +18,9 @@ const _HomeMain_LargeCard = ({ imgUrl, title, desc, btnText, className }) => {
           isBelow876Px ? "w-full bg-gray-900" : "w-[33%] px-5"
         }`}
       >
-        <TWHeading className="text-white text-center mb-4">{title}</TWHeading>
-        <TWText className="text-white text-center">{desc}</TWText>
-        <TWButton type="secondary" color="#999" className="mx-auto mt-6">
-          {btnText}
-        </TWButton>
+        <h2 className="secondary-heading text-white mb-4">{title}</h2>
+        <p className="text text-white text-center">{desc}</p>
+        <button className="secondary-button mx-auto mt-6">{btnText}</button>
       </div>
       <div className="banner-image-container relative w-full h-full">
         <Image src={imgUrl} layout="fill" objectFit="cover" />

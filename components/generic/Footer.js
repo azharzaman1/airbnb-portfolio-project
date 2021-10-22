@@ -1,9 +1,7 @@
 import { Grid } from "@mui/material";
 import { MuiContainer } from "../../files/StyledMui";
-import { TWLink, TWText } from "./Components";
 
 const Footer = ({ footerData }) => {
-  console.log(footerData);
   return (
     <section className="app-footer bg-[#F7F7F7] pt-12 pb-6">
       <MuiContainer maxWidth="xl">
@@ -15,13 +13,13 @@ const Footer = ({ footerData }) => {
         <Grid container className="mt-6 border-t-2 pt-6">
           <Grid item>
             <Grid container>
-              <TWText>© 2021 Airbnb, Inc.</TWText>
+              <p className="text">© 2021 Airbnb, Inc.</p>
               <span className="px-2">·</span>
-              <TWLink>Privacy</TWLink>
+              <p className="text">Privacy</p>
               <span className="px-2">·</span>
-              <TWLink>Terms</TWLink>
+              <p className="text">Terms</p>
               <span className="px-2">·</span>
-              <TWLink>Sitemap</TWLink>
+              <p className="text">Sitemap</p>
             </Grid>
           </Grid>
         </Grid>
@@ -33,16 +31,14 @@ const Footer = ({ footerData }) => {
 const FooterSection = ({ title, links }) => {
   return (
     <Grid item xs={12} sm={6} md={4} lg={3}>
-      <TWText className="mb-2" semibold>
-        {title}
-      </TWText>
+      <p className="text-semibold mb-2 mt-4 sm:mt-0">{title}</p>
       {links.map(({ label }) => (
-        <TWLink
-          className="block py-2"
+        <a
+          className="link block py-2"
           href={`https://www.airbnb.com/${label.replace(/\s+/g, "-")}`}
         >
           {label}
-        </TWLink>
+        </a>
       ))}
     </Grid>
   );

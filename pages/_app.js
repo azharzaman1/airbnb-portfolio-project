@@ -3,6 +3,9 @@ import ThemeWrapper from "../files/ThemeWrapper";
 import "tailwindcss/tailwind.css";
 import "../components/generic/Components.css";
 import "../styles/globals.css";
+import "../styles/tailwind-extended.css";
+import "react-date-range/dist/styles.css"; // main style file
+import "react-date-range/dist/theme/default.css"; // theme css file
 
 function MyApp({ Component, pageProps }) {
   return (
