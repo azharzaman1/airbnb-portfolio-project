@@ -7,7 +7,11 @@ const Footer = ({ footerData }) => {
       <MuiContainer maxWidth="xl">
         <Grid container justifyContent="space-between">
           {footerData?.map(({ title, links }) => (
-            <FooterSection title={title} links={links} />
+            <FooterSection
+              key={title.toLowerCase().replace(/\s+/g, "")}
+              title={title}
+              links={links}
+            />
           ))}
         </Grid>
         <Grid container className="mt-6 border-t-2 pt-6">
@@ -34,8 +38,11 @@ const FooterSection = ({ title, links }) => {
       <p className="text-semibold mb-2 mt-4 sm:mt-0">{title}</p>
       {links.map(({ label }) => (
         <a
+          key={label.toLowerCase().replace(/\s+/g, "")}
           className="link block py-2"
-          href={`https://www.airbnb.com/${label.replace(/\s+/g, "-")}`}
+          href={`https://www.airbnb.com/${label
+            .toLowerCase()
+            .replace(/\s+/g, "-")}`}
         >
           {label}
         </a>
