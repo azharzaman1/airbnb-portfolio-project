@@ -22,13 +22,16 @@ const Header = ({ placeholder, transparentEffect = false }) => {
   );
   const isScrolled = useWindowScroll(25);
 
-  const transparentHeader = transparentEffect && !isScrolled ? true : false;
+  const transparentHeader =
+    transparentEffect && !isScrolled && !input ? true : false;
 
   const router = useRouter();
 
   return (
     <header
-      className={`header fixed left-0 top-0 w-full z-40 py-4 transition duration-200 ${
+      className={`header ${
+        transparentEffect ? "fixed" : "sticky"
+      } left-0 top-0 w-full z-40 py-4 transition duration-200 ${
         transparentHeader ? "bg-transparent" : "bg-white shadow-md"
       }`}
     >
