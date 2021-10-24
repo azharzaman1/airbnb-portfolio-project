@@ -1,5 +1,5 @@
 import { useMediaQuery } from "@mui/material";
-import { Card } from "./_HomeMain_LiveAnywhere";
+import { Card } from "./HomeMain_LiveAnywhere";
 
 const _HomeMain_Blog = ({ blogData }) => {
   const isBelow876Px = useMediaQuery("(max-width: 876px)");

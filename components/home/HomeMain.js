@@ -1,8 +1,8 @@
 import { MuiContainer } from "../../files/StyledMui";
-import NearbyLocations from "./_HomeMain_NearbyLocations";
-import LiveAnywhere from "./_HomeMain_LiveAnywhere";
-import LargeBanner from "./_HomeMain_LargeCard";
-import Blog from "./_HomeMain_Blog";
+import NearbyLocations from "./HomeMain_NearbyLocations";
+import LiveAnywhere from "./HomeMain_LiveAnywhere";
+import LargeBanner from "./HomeMain_LargeCard";
+import Blog from "./HomeMain_Blog";
 import Section from "../generic/Section";
 
 const HomeMain = ({ locationsData, liveAnywhereData, blogData }) => {
