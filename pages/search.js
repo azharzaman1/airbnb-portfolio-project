@@ -1,7 +1,7 @@
 import Header from "../components/generic/Header";
 import Head from "next/head";
 import Footer from "../components/generic/Footer";
-import { MuiContainer } from "../files/StyledMui";
+import { MuiContainer, MuiContainerNarrowPadded } from "../files/StyledMui";
 import { useRouter } from "next/dist/client/router";
 import { format } from "date-fns";
 import InfoCard from "../components/search/InfoCard";
@@ -25,7 +25,7 @@ const Search = ({ footerLinks, searchResults }) => {
       />
 
       <section className="search-main pt-10">
-        <MuiContainer maxWidth="xl">
+        <MuiContainerNarrowPadded maxWidth="xl">
           <div className="info">
             <p className="text-sm">
               175+ stays - {dateRange} - {noOfGuests} guests
@@ -56,7 +56,7 @@ const Search = ({ footerLinks, searchResults }) => {
               )
             )}
           </main>
-        </MuiContainer>
+        </MuiContainerNarrowPadded>
       </section>
 
       <Footer footerData={footerLinks} />

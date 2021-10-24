@@ -10,8 +10,9 @@ import { useState } from "react";
 import { useRouter } from "next/dist/client/router";
 import SearchCalender from "./_Header_SearchCalender";
 import { useLocalStorage } from "react-use";
+import useWindowScroll from "../../Hooks/useWindowScroll";
 
-const Header = ({ placeholder }) => {
+const Header = ({ placeholder, transparentEffect = false }) => {
   const [input, setInput] = useState("");
   const above660px = useMediaQuery("(min-width:660px)");
   const above465px = useMediaQuery("(min-width:465px)");
@@ -19,11 +20,18 @@ const Header = ({ placeholder }) => {
     "searchQuery",
     ""
   );
+  const isScrolled = useWindowScroll(25);
+
+  const transparentHeader = transparentEffect && !isScrolled ? true : false;
 
   const router = useRouter();
 
   return (
-    <header className="header sticky top-0 z-50 bg-white shadow-md py-4">
+    <header
+      className={`header fixed left-0 top-0 w-full z-40 py-4 transition duration-200 ${
+        transparentHeader ? "bg-transparent" : "bg-white shadow-md"
+      }`}
+    >
       <MuiContainer maxWidth="xl">
         <Grid container alignItems="center" justifyContent="space-between">
           <Grid
@@ -38,7 +46,7 @@ const Header = ({ placeholder }) => {
             />
           </Grid>
           <Grid item md={above465px ? 4 : 8}>
-            <div className="flex items-center md:border-2 py-2 rounded-full transition-shadow duration-100 md:shadow-sm hover:shadow-md">
+            <div className="flex items-center md:border-2 py-2 rounded-full transition-shadow duration-100 md:shadow-sm hover:shadow-md bg-white">
               <input
                 type="text"
                 value={input}
@@ -47,7 +55,7 @@ const Header = ({ placeholder }) => {
                   setInput(e.target.value);
                   setInputLS(e.target.value);
                 }}
-                className="pl-5 bg-transparent outline-none flex-grow text-gray-700 placeholder-gray-400"
+                className={`pl-5 bg-transparent outline-none flex-grow placeholder-gray-600 text-gray-700`}
               />
               <SearchIcon className="hidden md:inline-flex text-white bg-red-400 rounded-full p-2 h-8 cursor-pointer md:mx-2" />
             </div>
@@ -62,20 +70,40 @@ const Header = ({ placeholder }) => {
               {above660px && (
                 <>
                   <Grid item>
-                    <button className="text-button">Become a Host</button>
+                    <button
+                      className={`${
+                        transparentHeader
+                          ? "text-button-variant-2"
+                          : "text-button"
+                      }`}
+                    >
+                      Become a Host
+                    </button>
                   </Grid>
                   <Grid item>
-                    <button className="icon-button">
-                      <GlobeAltIcon className="icon h-6 text-gray-500 active:scale-95" />
+                    <button
+                      className={`${
+                        transparentHeader
+                          ? "icon-button-variant-2"
+                          : "icon-button"
+                      }`}
+                    >
+                      <GlobeAltIcon
+                        className={`icon h-6  active:scale-95 ${
+                          transparentHeader ? "text-gray-200" : "text-gray-700"
+                        }`}
+                      />
                     </button>
                   </Grid>
                 </>
               )}
               {above465px && (
                 <Grid item>
-                  <div className="flex items-center space-x-2 border-2 p-2 rounded-full cursor-pointer hover:shadow-sm transition-shadow duration-100">
-                    <MenuIcon className="icon h-6 text-gray-700" />
-                    <UserCircleIcon className="icon h-6 text-gray-700" />
+                  <div
+                    className={`flex items-center space-x-2 border-2 p-2 rounded-full cursor-pointer hover:shadow-sm transition-shadow duration-100 bg-gray-200`}
+                  >
+                    <MenuIcon className={`icon h-6 text-gray-700`} />
+                    <UserCircleIcon className={`icon h-6 text-gray-700`} />
                   </div>
                 </Grid>
               )}

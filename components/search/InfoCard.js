@@ -2,6 +2,7 @@ import { HeartIcon } from "@heroicons/react/outline";
 import { HeartIcon as HeartIconSolid, StarIcon } from "@heroicons/react/solid";
 import { Grid } from "@mui/material";
 import Image from "next/image";
+import { useState } from "react";
 import { getRandomNumber } from "../../files/utils";
 
 const InfoCard = ({
@@ -14,9 +15,11 @@ const InfoCard = ({
   location,
   className,
 }) => {
+  const [wishlistState, setWishlistState] = useState(false);
+
   return (
     <div
-      className={`info-card flex flex-col md:flex-row space-x-3 border-t-2 border-gray-200 pt-8 mb-8 w-full lg:w-3/4 ${className}`}
+      className={`info-card flex flex-col cursor-pointer md:flex-row space-x-3 border-t border-gray-200 pt-8 mb-8 w-full lg:w-2/3 last:pb-8 last:border-b ${className}`}
     >
       <div className="card-image relative h-72 sm:h-96 md:h-52 w-full md:w-80 flex-shrink-0">
         <Image
@@ -40,8 +43,15 @@ const InfoCard = ({
 
             <div className="hidden md:inline-flex pt-1 w-12 border-b-2"></div>
           </div>
-          <button className="icon-button self-start">
-            <HeartIcon className="h-5 sm:h-6 md:h-7 active:scale-95" />
+          <button
+            className="icon-button self-start"
+            onClick={() => setWishlistState((prev) => !prev)}
+          >
+            {wishlistState ? (
+              <HeartIconSolid className="h-5 sm:h-6 md:h-7 active:scale-95 text-[#fe595ec9]" />
+            ) : (
+              <HeartIcon className="h-5 sm:h-6 md:h-7 active:scale-95" />
+            )}
           </button>
         </div>
 

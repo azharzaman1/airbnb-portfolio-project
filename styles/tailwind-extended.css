@@ -7,6 +7,11 @@
     font-family: "Inter", "Roboto", sans-serif;
   }
 
+  .py-10px {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
   /* Buttons */
   .primary-button {
     @apply px-14 py-4 shadow-md rounded-full font-bold transition duration-200 hover:shadow-lg active:scale-90 bg-white text-purple-500;
@@ -17,19 +22,23 @@
   }
 
   .text-button {
-    @apply px-8 py-2 rounded-full bg-transparent hover:bg-gray-100 transition duration-150 text-gray-800;
+    @apply px-5 py-10px rounded-full bg-transparent hover:bg-gray-100 transition duration-150 text-gray-800;
   }
 
-  .text-button-cc {
-    @apply px-8 py-2 rounded-full bg-transparent hover:bg-gray-100 transition duration-150;
+  .text-button-variant-2 {
+    @apply px-5 py-10px rounded-full bg-transparent transition duration-150 text-gray-100 hover:bg-[rgba(200,200,200,0.15)];
   }
 
   .filter-button {
-    @apply text-sm px-4 py-2 border rounded-full hover:shadow-md active:scale-95 active:bg-gray-100 cursor-pointer transition duration-150 whitespace-nowrap;
+    @apply text-sm px-4 py-2 border hover:border-[#333] rounded-full active:scale-95 active:bg-gray-100 cursor-pointer transition duration-100 whitespace-nowrap;
   }
 
   .icon-button {
     @apply bg-transparent p-2 hover:bg-gray-100 rounded-full cursor-pointer;
+  }
+
+  .icon-button-variant-2 {
+    @apply bg-transparent p-2 hover:bg-[rgba(200,200,200,0.15)] rounded-full cursor-pointer;
   }
 
   /* Headings */

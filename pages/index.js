@@ -11,12 +11,12 @@ export default function Home({
   footerLinks,
 }) {
   return (
-    <div>
+    <div className="relative">
       <Head>
         <title>Airbnb | sonysangha</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
+      <Header transparentEffect />
       <Hero />
       <HomeMain
         locationsData={locationsData}
