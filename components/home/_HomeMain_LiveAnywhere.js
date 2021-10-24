@@ -1,6 +1,6 @@
 import { useMediaQuery } from "@mui/material";
 import Image from "next/image";
-import { useWindowSize } from "../../Hooks/useWindowSize";
+import useWindowSize from "../../Hooks/useWindowSize";
 
 const _HomeMain_LiveAnywhere = ({ liveAnywhereData }) => {
   const isBelow876Px = useMediaQuery("(max-width: 876px)");

@@ -11,12 +11,12 @@ export default function Home({
   footerLinks,
 }) {
   return (
-    <div>
+    <div className="relative">
       <Head>
         <title>Airbnb | sonysangha</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
+      <Header transparentEffect />
       <Hero />
       <HomeMain
         locationsData={locationsData}
@@ -30,11 +30,11 @@ export default function Home({
 
 export async function getStaticProps() {
   const locationsData = await (
-    await fetch("https://links.papareact.com/pyp")
+    await fetch("https://jsonkeeper.com/b/4G1G")
   ).json();
 
   const liveAnywhereData = await (
-    await fetch("https://links.papareact.com/zp1")
+    await fetch("https://jsonkeeper.com/b/VHHT")
   ).json();
 
   const blogData = await (await fetch("https://jsonkeeper.com/b/XQFM")).json();

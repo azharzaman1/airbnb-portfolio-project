@@ -1,22 +1,34 @@
 import Header from "../components/generic/Header";
 import Head from "next/head";
 import Footer from "../components/generic/Footer";
-import { MuiContainer } from "../files/StyledMui";
+import { MuiContainer, MuiContainerNarrowPadded } from "../files/StyledMui";
+import { useRouter } from "next/dist/client/router";
+import { format } from "date-fns";
+import InfoCard from "../components/search/InfoCard";
 
-const Search = ({ footerLinks }) => {
+const Search = ({ footerLinks, searchResults }) => {
+  const router = useRouter();
+
+  const { location, startDate, endDate, noOfGuests } = router.query;
+  const formattedStartDate = format(new Date(startDate), "dd MMMM yy");
+  const formattedEndDate = format(new Date(endDate), "dd MMMM yy");
+  const dateRange = `${formattedStartDate} - ${formattedEndDate}`;
+
   return (
     <div className="search-page">
       <Head>
         <title>Airbnb | Search</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
+      <Header
+        placeholder={`${location} | ${dateRange} | ${noOfGuests} guests`}
+      />
 
       <section className="search-main pt-10">
-        <MuiContainer maxWidth="xl">
+        <MuiContainerNarrowPadded maxWidth="xl">
           <div className="info">
-            <p className="text-semibold text-xs">
-              5000+ stays for 5 number of guests in London
+            <p className="text-sm">
+              175+ stays - {dateRange} - {noOfGuests} guests
             </p>
             <h3 className="primary-heading mb-6">Stays in London</h3>
           </div>
@@ -28,7 +40,23 @@ const Search = ({ footerLinks }) => {
             <button className="filter-button"> Stay Location</button>
             <button className="filter-button">Other filters</button>
           </div>
-        </MuiContainer>
+          <main className="search-results flex flex-col">
+            {searchResults?.map(
+              ({ title, img, location, description, star, price, total }) => (
+                <InfoCard
+                  key={title.toLowerCase().replace(/\s+/g, "")}
+                  title={title}
+                  img={img}
+                  description={description}
+                  location={location}
+                  star={star}
+                  price={price}
+                  total={total}
+                />
+              )
+            )}
+          </main>
+        </MuiContainerNarrowPadded>
       </section>
 
       <Footer footerData={footerLinks} />
@@ -38,13 +66,18 @@ const Search = ({ footerLinks }) => {
 
 export default Search;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const footerLinks = await (
     await fetch("https://jsonkeeper.com/b/1VGT")
   ).json();
 
+  const searchResults = await (
+    await fetch("https://jsonkeeper.com/b/5NPS")
+  ).json();
+
   return {
     props: {
+      searchResults,
       footerLinks,
     },
   };
