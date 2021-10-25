@@ -31,7 +31,7 @@ const Header = ({ placeholder, transparentEffect = false }) => {
     <header
       className={`header ${
         transparentEffect ? "fixed" : "sticky"
-      } left-0 top-0 w-full z-40 py-4 transition duration-200 ${
+      } left-0 top-0 w-full z-40 py-3 transition duration-200 ${
         transparentHeader ? "bg-transparent" : "bg-white shadow-md"
       }`}
     >

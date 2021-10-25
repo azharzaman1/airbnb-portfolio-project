@@ -19,7 +19,7 @@ const InfoCard = ({
 
   return (
     <div
-      className={`info-card flex flex-col cursor-pointer md:flex-row space-x-3 border-t border-gray-200 pt-8 mb-8 w-full lg:w-2/3 last:pb-8 last:border-b ${className}`}
+      className={`info-card flex flex-col cursor-pointer md:flex-row space-x-3 border-t border-gray-200 pt-8 mb-8 w-full last:pb-8 last:border-b ${className}`}
     >
       <div className="card-image relative h-72 sm:h-96 md:h-52 w-full md:w-80 flex-shrink-0">
         <Image
@@ -55,16 +55,21 @@ const InfoCard = ({
           </button>
         </div>
 
-        <p className="text-sm mt-2 md:mt-3 text-gray-600">{description}</p>
+        {description && (
+          <p className="text-sm mt-2 md:mt-3 text-gray-600">{description}</p>
+        )}
 
         <div className="flex flex-grow items-end justify-between mt-4 md:mt-0">
-          <div className="hidden md:flex items-center text-sm">
-            <StarIcon className="h-5 text-[#FF385C]" /> {star} (
-            {getRandomNumber(1, 1000)} reviews)
-          </div>
+          {star && (
+            <div className="hidden md:flex items-center text-sm">
+              <StarIcon className="h-5 text-[#FF385C]" /> {star} (
+              {getRandomNumber(1, 1000)} reviews)
+            </div>
+          )}
+
           <div>
-            <p className="text-semibold">{price}</p>
-            <p className="text underline">{total}</p>
+            {price && <p className="text-semibold">{price}</p>}
+            {total && <p className="text underline">{total}</p>}
           </div>
         </div>
       </div>
