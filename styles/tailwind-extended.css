@@ -12,6 +12,12 @@
     padding-bottom: 10px;
   }
 
+  /* Generic */
+
+  .height-screen-minus-header {
+    height: calc(100vh - 76px);
+  }
+
   /* Buttons */
   .primary-button {
     @apply px-14 py-4 shadow-md rounded-full font-bold transition duration-200 hover:shadow-lg active:scale-90 bg-white text-purple-500;

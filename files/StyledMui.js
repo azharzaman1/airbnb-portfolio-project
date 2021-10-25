@@ -18,6 +18,6 @@ export const MuiContainerNarrowPadded = styled(Container)(({ theme }) => ({
   },
 
   [theme.breakpoints.up("md")]: {
-    padding: `0 ${theme.spacing(1)} 0`,
+    padding: `0 ${theme.spacing(2)} 0`,
   },
 }));

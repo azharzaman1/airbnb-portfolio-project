@@ -5,6 +5,7 @@ import { MuiContainer, MuiContainerNarrowPadded } from "../files/StyledMui";
 import { useRouter } from "next/dist/client/router";
 import { format } from "date-fns";
 import InfoCard from "../components/search/InfoCard";
+import Map from "../components/search/Map";
 
 const Search = ({ footerLinks, searchResults }) => {
   const router = useRouter();
@@ -23,42 +24,48 @@ const Search = ({ footerLinks, searchResults }) => {
       <Header
         placeholder={`${location} | ${dateRange} | ${noOfGuests} guests`}
       />
-
-      <section className="search-main pt-10">
-        <MuiContainerNarrowPadded maxWidth="xl">
-          <div className="info">
-            <p className="text-sm">
-              175+ stays - {dateRange} - {noOfGuests} guests
-            </p>
-            <h3 className="primary-heading mb-6">Stays in London</h3>
-          </div>
-          <div className="filters hidden lg:inline-flex mb-5 space-x-3">
-            <button className="filter-button">Cancellation flexibility</button>
-            <button className="filter-button">Type of place</button>
-            <button className="filter-button">Price</button>
-            <button className="filter-button">Rooms and Beds</button>
-            <button className="filter-button"> Stay Location</button>
-            <button className="filter-button">Other filters</button>
-          </div>
-          <main className="search-results flex flex-col">
-            {searchResults?.map(
-              ({ title, img, location, description, star, price, total }) => (
-                <InfoCard
-                  key={title.toLowerCase().replace(/\s+/g, "")}
-                  title={title}
-                  img={img}
-                  description={description}
-                  location={location}
-                  star={star}
-                  price={price}
-                  total={total}
-                />
-              )
-            )}
-          </main>
-        </MuiContainerNarrowPadded>
-      </section>
-
+      <main className="flex">
+        <section className="search-main pt-10 w-full lg:w-2/3 xl:w-1/2">
+          <MuiContainerNarrowPadded maxWidth="xl">
+            <div className="info">
+              <p className="text-sm">
+                175+ stays - {dateRange} - {noOfGuests} guests
+              </p>
+              <h3 className="primary-heading mb-6">Stays in London</h3>
+            </div>
+            <div className="filters hidden lg:inline-flex mb-5 space-x-3">
+              <button className="filter-button">
+                Cancellation flexibility
+              </button>
+              <button className="filter-button">Type of place</button>
+              <button className="filter-button">Price</button>
+              <button className="filter-button">Rooms and Beds</button>
+              <button className="filter-button">Other filters</button>
+            </div>
+            <main className="search-results flex flex-col">
+              {searchResults?.map(
+                ({ title, img, location, description, star, price, total }) => (
+                  <InfoCard
+                    key={title.toLowerCase().replace(/\s+/g, "")}
+                    title={title}
+                    img={img}
+                    description={description}
+                    location={location}
+                    star={star}
+                    price={price}
+                    total={total}
+                  />
+                )
+              )}
+            </main>
+          </MuiContainerNarrowPadded>
+        </section>
+        <section
+          className={`map-section hidden lg:inline-flex w-1/3 xl:w-1/2 sticky top-[76px] right-0 height-screen-minus-header`}
+        >
+          <Map searchResults={searchResults} />
+        </section>
+      </main>
       <Footer footerData={footerLinks} />
     </div>
   );

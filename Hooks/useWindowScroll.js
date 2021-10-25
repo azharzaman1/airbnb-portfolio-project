@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 const useWindowScroll = (offset) => {
-  console.log(offset);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
