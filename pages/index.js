@@ -13,7 +13,7 @@ export default function Home({
   return (
     <div className="relative">
       <Head>
-        <title>Airbnb | sonysangha</title>
+        <title>AirBnb Demo | Azhar Zaman</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header transparentEffect />
