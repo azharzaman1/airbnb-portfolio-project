@@ -1,12 +1,13 @@
 # Airbnb Demo
 Built simple Airbnb demo with NextJs & mapbox to practice NextJs and Tailwind 
 
-<b>Development link:</b> https://airbnbdemo.azharzaman.com/ <br />
+<b>Live link:</b> https://airbnbdemo.azharzaman.com/ <br />
 <b>Portfolio link:</b> https://azharzaman.com
 
 ## Used technologies:
 • Javascript(es6+) <br/>
-• <b>R</b>eactJs (NextJs) <br/>
+• ReactJs (NextJs)
+• Mapbox
 
 ### UI & Styling
 • Tailwind CSS <br/>
